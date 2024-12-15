@@ -8,18 +8,20 @@ using api.Models;
 
 namespace api.Mappers
 {
-    public static  class StockMappers
+    public static class StockMappers
     {
-        public static StockDto ToStockDto(this Stock stockModel){
-            return new StockDto{
+        public static StockDto ToStockDto(this Stock stockModel)
+        {
+            return new StockDto
+            {
                 Id = stockModel.Id,
                 Symbol = stockModel.Symbol,
                 CompanyName = stockModel.CompanyName,
                 Purchase = stockModel.Purchase,
                 LastDiv = stockModel.LastDiv,
                 Industry = stockModel.Industry,
-                NyketCap = stockModel.NyketCap
-
+                NyketCap = stockModel.NyketCap,
+                Comments = stockModel.Comments.Select(c => c.ToCommentDto()).ToList()
             };
         }
 
@@ -37,5 +39,5 @@ namespace api.Mappers
         }
     }
 
-   
+
 }
