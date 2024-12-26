@@ -92,6 +92,8 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddScoped<IStockRepository, StockRepository>(); //stock
 builder.Services.AddScoped<ICommentRepository, CommentRepository>(); //comment
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IPortfolioRepository, PortfolioRepository>();
+
 
 builder.Services.AddControllers()
 .AddNewtonsoftJson(options =>
