@@ -43,7 +43,7 @@ namespace api.Repository
         {
             // return await _context.Stock.Include(c => c.Comments).ToListAsync();
 
-            var stocks = _context.Stock.Include(c => c.Comments).AsQueryable();
+            var stocks = _context.Stock.Include(c => c.Comments).ThenInclude(a => a.AppUser).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(query.CompanyName))
             {
